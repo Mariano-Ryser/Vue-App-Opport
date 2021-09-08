@@ -41,7 +41,8 @@ data(){
     title: "Welcome to Opportunity",
     currentDate: "",
     gsheet_url: 
-"https://sheets.googleapis.com/v4/spreadsheets/1qLZJwuNv3QmwGhSj1wZZbuXNOkDKN-Ha7fo0Ca_uVVU/values:batchGet?ranges=A1%3AE100&valueRenderOption=FORMATTED_VALUE&key=AIzaSyBesotaNgSaTUIhrSKjEaExdi-ksKInhoE",    entries : [],
+"https://sheets.googleapis.com/v4/spreadsheets/1qLZJwuNv3QmwGhSj1wZZbuXNOkDKN-Ha7fo0Ca_uVVU/values:batchGet?ranges=A1%3AE100&valueRenderOption=FORMATTED_VALUE&key=1_N4YuujKyEpU2bgKr0dlA1jOZ-m31zGqZdD7WCaO0XY",
+    entries : [],
   };
 
   
