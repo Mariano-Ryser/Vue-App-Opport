@@ -35,58 +35,46 @@ import axios from "axios";
 
  export default {
    name: "App",
+  data(){
+    return {
+      title: "Welcome to Opportunity",
+      currentDate: "",
+      gsheet_url: 
+        "https://sheets.googleapis.com/v4/spreadsheets/1_N4YuujKyEpU2bgKr0dlA1jOZ-m31zGqZdD7WCaO0XY/values:batchGet?ranges=A1%3AE100&valueRenderOption=FORMATTED_VALUE&key=AIzaSyBsnFNbHQWLcYlyEmCpOuL2lHZBwFyzDGw",
+      entries : [],
+    };
+  }, // <----- data ende
+  computed :{
+    filteredEntries() {
+      return [...this.entries].slice(1); // remove first item of array
+    },
+  },// <----- computed properties are like data properties, but with a method combined, it gets executed automatically, instead of calling a function explicitly
+  methods: {
+    tuca(){
+      alert('Hallo');
+    },
+    getData(){
+      axios.get(this.gsheet_url).then((response) => {
+      this.entries = response.data.valueRanges[0].values;
+      })
+    },
+    updataCurrentDate(){
+      let today = new Date();
+      const date = `${today.getDate()}.${today.getMonth() + 1 }.${today.getFullYear()}`;
+      this.currentDate = date;
+    },
+    refreshData() {
+      this.getData();
+      this.updataCurrentDate();
+      }
+  }, // <----- methods ende
+  mounted(){
+    this.refreshData();   // get first intitial data and then wait for the next update
 
-data(){
-  return {
-    title: "Welcome to Opportunity",
-    currentDate: "",
-    gsheet_url: 
-"https://sheets.googleapis.com/v4/spreadsheets/1qLZJwuNv3QmwGhSj1wZZbuXNOkDKN-Ha7fo0Ca_uVVU/values:batchGet?ranges=A1%3AE100&valueRenderOption=FORMATTED_VALUE&key=1_N4YuujKyEpU2bgKr0dlA1jOZ-m31zGqZdD7WCaO0XY",
-    entries : [],
-  };
-
-  
- }, // <----- data ende
-
-computed :{
-  filteredEntries() {
-    return [...this.entries].slice(1); // remove first item of array
-  },
-  
- },// <----- computed properties are like data properties, but with a method combined, it gets executed automatically, instead of calling a function explicitly
-
-methods: {
-
-  tuca(){
-     alert('Hallo');
-  },
-getData(){
-axios.get(this.gsheet_url).then((response) => {
-
-this.entries = response.data.valueRanges[0].values;
-console.log(response);
-})
-},
-   updataCurrentDate(){
-     let today = new Date();
-     const date = `${today.getDate()}.${today.getMonth() + 1 }.${today.getFullYear()}`;
-     this.currentDate = date;
-     console.log (this.currentDate);
-      },
-   refreshData() {
-     this.getData();
-     this.updataCurrentDate();
-    }
- }, // <----- methods ende
-
- mounted(){
-   this.refreshData();   // get first intitial data and then wait for the next update
-
-   setInterval(() => {
-     this.refreshData();
-   }, 1800000) // wait 30min for next update
- }       // <----- mounted ende
-
+    setInterval(() => {
+      this.refreshData();
+    }, 1800000) // wait 30min for next update
+  }       // <----- mounted ende
 };      // <----- export default ende
 </script>
 
