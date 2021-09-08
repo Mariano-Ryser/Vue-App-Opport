@@ -33,7 +33,7 @@
 <script>
 import axios from "axios";
 
- export default {
+export default {
    name: "App",
   data(){
     return {
