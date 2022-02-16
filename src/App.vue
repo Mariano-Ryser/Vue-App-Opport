@@ -89,12 +89,12 @@ body {
   font-family: "Inter", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 60px;
+  margin: 20px;
   color: #323d4a;
 }
 
 .site-title {
-  font-size: 62px;
+  font-size: 52px;
   font-weight: 900;
   margin: 80px 0 20px 0;
 }
@@ -147,10 +147,9 @@ body {
 .footer {
   display: flex;
   justify-content: space-between;
-  padding: 40px;
+  padding: 50px;
   box-sizing: border-box;
   background: #ffff;
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
