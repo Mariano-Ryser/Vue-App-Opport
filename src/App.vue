@@ -13,9 +13,12 @@
           :key="entry.id"
           >
 
-         <span class="entry-daytime">{{entry[0]}} Uhr, {{entry[1].replaceAll("/",".")}} </span>
+         <span class="entry-daytime">{{entry[0]}} Uhr - {{entry[1].replaceAll("/",".")}} </span>
          <h3 class="entry-title">{{entry[2]}}</h3>
          <span class="entry-description">{{entry[3]}}</span>
+         <span class="entry-description-extra">{{entry[4]}}</span>
+         <span class="entry-description-extra2">{{entry[5]}}</span>
+         
          
        </li>
      </ul>
@@ -37,7 +40,7 @@ export default {
    name: "App",
   data(){
     return {
-      title: "Welcome to Opportunity",
+      title: "Welcome to my Cv",
       currentDate: "",
       gsheet_url: 
         "https://sheets.googleapis.com/v4/spreadsheets/1_N4YuujKyEpU2bgKr0dlA1jOZ-m31zGqZdD7WCaO0XY/values:batchGet?ranges=A1%3AE100&valueRenderOption=FORMATTED_VALUE&key=AIzaSyBsnFNbHQWLcYlyEmCpOuL2lHZBwFyzDGw",
@@ -51,7 +54,7 @@ export default {
   },// <----- computed properties are like data properties, but with a method combined, it gets executed automatically, instead of calling a function explicitly
   methods: {
     tuca(){
-      alert('Hallo');
+      alert('Auch ein test');
     },
     getData(){
       axios.get(this.gsheet_url).then((response) => {
@@ -124,7 +127,6 @@ body {
 .entry-item:hover {
   background: #4f7ebd;
   box-shadow: rgb(0, 0, 0) 10px 10px 70px;
-
 }
 
 .entry-daytime {
@@ -144,6 +146,16 @@ body {
   color: #ffbfab;
 }
 
+.entry-description-extra {
+  font-weight: 500;
+  color: #ffbfab;
+}
+
+.entry-description-extra2 {
+  font-weight: 700;
+  color: red;
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -158,5 +170,7 @@ body {
 .footer img {
   height: 50px;
 }
+
+
 
 </style>
