@@ -17,7 +17,8 @@
          <h3 class="entry-title">{{entry[2]}}</h3>
          <span class="entry-description">{{entry[3]}}</span> <br>
          <span class="entry-description-extra">{{entry[4]}}</span> <br>
-         <span class="entry-description-extra2">{{entry[5]}}</span>
+         <span class="entry-description-extram">{{entry[5]}}</span>
+         <span class="entry-description-extraz">{{entry[6]}}</span>
          
          
        </li>
@@ -151,8 +152,12 @@ body {
   color: #ffbfab;
 }
 
-.entry-description-extra2 {
-  font-weight: 700;
+.entry-description-extram {
+  font-weight: 500;
+  color: #ffbfab;
+}
+.entry-description-extraz{
+  font-weight: 500;
   color: #ffbfab;
 }
 
