@@ -16,10 +16,8 @@
          <span class="entry-daytime">{{entry[0]}} Uhr - {{entry[1].replaceAll("/",".")}} </span>
          <h3 class="entry-title">{{entry[2]}}</h3>
          <span class="entry-description">{{entry[3]}}</span> <br>
-         <span class="entry-description-extra">{{entry[4]}}</span> <br>
-         <span class="entry-description-extram">{{entry[5]}}</span>
-         <span class="entry-description-extraz">{{entry[6]}}</span>
-         
+         <span class="entry-description">{{entry[4]}}{{entry[5]}}</span> 
+     
          
        </li>
      </ul>
@@ -143,20 +141,6 @@ body {
 }
 
 .entry-description {
-  font-weight: 500;
-  color: #ffbfab;
-}
-
-.entry-description-extra {
-  font-weight: 500;
-  color: #ffbfab;
-}
-
-.entry-description-extram {
-  font-weight: 500;
-  color: #ffbfab;
-}
-.entry-description-extraz{
   font-weight: 500;
   color: #ffbfab;
 }
