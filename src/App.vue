@@ -18,6 +18,8 @@
          <h3 class="entry-title">{{entry[2]}}</h3>
          <span class="entry-description">{{entry[3]}}</span> <br>
          <span class="entry-description-extra">{{entry[4]}}</span> 
+          <span class="entry-description-extra">{{entry[5]}}</span> 
+         
      
          
        </li>
@@ -47,12 +49,12 @@ export default {
   }, // <----- data ende
   computed :{
     filteredEntries() {
-      return [...this.entries].slice(1); // remove first item of array
+      return [...this.entries].slice(1); // remove first item of array // filtra la primera linea en la hoja de calculo
     },
   },// <----- computed properties are like data properties, but with a method combined, it gets executed automatically, instead of calling a function explicitly
   methods: {
     tuca(){
-      alert('Auch ein test');
+      
     },
     getData(){
       axios.get(this.gsheet_url).then((response) => {
@@ -77,21 +79,28 @@ export default {
     }, 1800000) // wait 30min for next update
   }       // <----- mounted ende
 };      // <----- export default ende
+
+
 </script>
 
 <style>
 @import url(https://fonts.googleapis.com/css2?family=Inter:wght@500;900&display=swap%22%22);
 
+
+
 body {
-  background-color:yellow;
+    background: linear-gradient(50deg, #000000, #1c7d20, #000000);
+    background-size: 400% 400%;
+
 }
+
 
 #app {
   font-family: "Inter", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 20px;
-  color: black;
+  color: white;
 }
 
 .site-title {
@@ -105,52 +114,46 @@ body {
   font-size: 62px;
   color: black;
   margin: 0;
-  color: #323d4a;
+  color:white;
 
 }
 
 .entry-list {
   padding-left: 0;
+
 }
 
 .entry-item {
-  
+  color:white;
+  display:inline-block;
   padding: 25px 30px;
-  margin: 20px 0;
+  margin: 20px 5px;
   font-size: 28px;
   line-height: 1.3;
   list-style: none;
   /*background: #0f05a0;*/
   transition: 0.5s;
   border: 5px dashed black;
-  animation: bord 100s infinite alternate ease-out;
 }
-@keyframes bord{
-  0%{
-    background:yellow;
-  }
-  100%{
-    background:green;
-  }
-}
+
 /* MEDIA QUERI */
 
 
 .entry-daytime {
   font-weight: 900;
-  color:black;
+  color:white;
 }
 
 .entry-title {
   font-size: inherit;
   font-weight: 900;
-  color:black;
+  color:white;
   margin: 0;
 }
 
 .entry-description {
   font-weight: 500;
-  color:black;
+  color:white;
 }
 
 .entry-description-extra{
@@ -163,16 +166,12 @@ body {
   flex-direction:column;
   padding: 50px;
   box-sizing: border-box;
-  background-color:yellow;
   border: 5px dashed black;
   bottom: 0;
   left: 0;
   width: 100%;
 }
 
-.footer img {
-  height: 50px;
-}
 
 
 /* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI */
@@ -183,8 +182,8 @@ body {
 
 
 @media (max-width: 600px) {
-body {
-  background: #e8eff4;
+body { background: linear-gradient(50deg, #000000, #1c7d20, #000000);
+    background-size: 400% 400%;
 }
 
 #app {
@@ -192,25 +191,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 10px;
-  color: #323d4a;
 }
 
 .site-title {
-  font-size: 60px;
+  font-size: 40px;
   font-weight: 900;
-  margin: 20px 0 0px 0;
+  margin: 30px 0 0px 0;
 }
-.box-foto-info{
-  display:grid;
-  grid-template-columns: auto;
-}
-.foto{
- height:340px;
- border-radius:20%;
-}
+
+
 .site-description {
-  font-size: 42px;
-  color: #323d4a;
+  font-size: 25px;
   margin: 0;
 }
 
@@ -221,40 +212,31 @@ body {
 
 .entry-item {
   cursor: pointer;
-  padding: 35px 40px;
-  margin: 40px 0;
-  font-size: 28px;
-  line-height: 1.3;
+  padding: 30px 30px;
+  margin: 10px 0;
+  font-size: 25px;
+  line-height: 1.1;
   list-style: none;
-  background: #0f05a0;
   transition: 0.5s;
-}
-
-.entry-item:hover {
-  background: #4f7ebd;
-  box-shadow: rgb(0, 0, 0) 10px 10px 70px;
+  border: dashed black 3px;
 }
 
 .entry-daytime {
-  font-weight: 900;
-  color: #eb5e00;
+  font-weight: 500;
 }
 
 .entry-title {
   font-size: inherit;
-  font-weight: 900;
-  color: #ffbfab;
+  font-weight: 500;
   margin: 0;
 }
 
 .entry-description {
   font-weight: 500;
-  color: #ffbfab;
 }
 
 .entry-description-extra{
   font-weight: 400;
-  color: #ffbfab;
 }
 
   .footer {
@@ -262,17 +244,12 @@ body {
   flex-direction:column;
   padding: 20px;
   box-sizing: border-box;
-  background-color:yellow;
 
   bottom: 0;
   left: 0;
   width: 100%;
 }
-  .footer img {
-  height: 35px;
-  padding: 20px;
-
-}
+  
 }
 
 
