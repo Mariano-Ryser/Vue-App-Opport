@@ -2,7 +2,8 @@
   <div id="app">
     <!-- title -->
      <h1 class="site-title">{{title}}</h1>
-       <span class="site-description">{{ currentDate }}</span>
+      
+      <span class="site-description">{{ currentDate }}</span>
 
 
        <!-- entry list -->
@@ -16,16 +17,14 @@
          <span class="entry-daytime">{{entry[0]}} Uhr - {{entry[1].replaceAll("/",".")}} </span>
          <h3 class="entry-title">{{entry[2]}}</h3>
          <span class="entry-description">{{entry[3]}}</span> <br>
-         <span class="entry-description">{{entry[4]}}{{entry[5]}}</span> 
+         <span class="entry-description-extra">{{entry[4]}}</span> 
      
          
        </li>
      </ul>
      
    <footer class="footer">
-     <img src="./assets/1.png" alt="">
-     <img src="./assets/2.png" alt="">
-     <img src="./assets/3.png" alt="">
+     
    </footer>
 
   </div>
@@ -39,7 +38,7 @@ export default {
    name: "App",
   data(){
     return {
-      title: "Welcome to my Cv",
+      title: "Mariano N. Ryser",
       currentDate: "",
       gsheet_url: 
         "https://sheets.googleapis.com/v4/spreadsheets/1_N4YuujKyEpU2bgKr0dlA1jOZ-m31zGqZdD7WCaO0XY/values:batchGet?ranges=A1%3AE100&valueRenderOption=FORMATTED_VALUE&key=AIzaSyBsnFNbHQWLcYlyEmCpOuL2lHZBwFyzDGw",
@@ -84,7 +83,7 @@ export default {
 @import url(https://fonts.googleapis.com/css2?family=Inter:wght@500;900&display=swap%22%22);
 
 body {
-  background: #e8eff4;
+  background-color:yellow;
 }
 
 #app {
@@ -92,21 +91,129 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 20px;
+  color: black;
+}
+
+.site-title {
+  font-size: 70px;
+  font-weight: 900;
+  margin: 20px 0px 20px 0px;
+}
+
+
+.site-description {
+  font-size: 62px;
+  color: black;
+  margin: 0;
+  color: #323d4a;
+
+}
+
+.entry-list {
+  padding-left: 0;
+}
+
+.entry-item {
+  
+  padding: 25px 30px;
+  margin: 20px 0;
+  font-size: 28px;
+  line-height: 1.3;
+  list-style: none;
+  /*background: #0f05a0;*/
+  transition: 0.5s;
+  border: 5px dashed black;
+  animation: bord 100s infinite alternate ease-out;
+}
+@keyframes bord{
+  0%{
+    background:yellow;
+  }
+  100%{
+    background:green;
+  }
+}
+/* MEDIA QUERI */
+
+
+.entry-daytime {
+  font-weight: 900;
+  color:black;
+}
+
+.entry-title {
+  font-size: inherit;
+  font-weight: 900;
+  color:black;
+  margin: 0;
+}
+
+.entry-description {
+  font-weight: 500;
+  color:black;
+}
+
+.entry-description-extra{
+  font-weight: 400;
+  color:black;
+}
+
+.footer {
+  display: flex;
+  flex-direction:column;
+  padding: 50px;
+  box-sizing: border-box;
+  background-color:yellow;
+  border: 5px dashed black;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer img {
+  height: 50px;
+}
+
+
+/* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI */
+/* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI */
+/* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI */
+/* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI */
+/* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI *//* MEDIA QUERI */
+
+
+@media (max-width: 600px) {
+body {
+  background: #e8eff4;
+}
+
+#app {
+  font-family: "Inter", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 10px;
   color: #323d4a;
 }
 
 .site-title {
-  font-size: 52px;
+  font-size: 60px;
   font-weight: 900;
-  margin: 80px 0 20px 0;
+  margin: 20px 0 0px 0;
 }
-
+.box-foto-info{
+  display:grid;
+  grid-template-columns: auto;
+}
+.foto{
+ height:340px;
+ border-radius:20%;
+}
 .site-description {
-  font-weight: 500;
-  font-size: 62px;
-  color: #9aa7b1;
+  font-size: 42px;
+  color: #323d4a;
   margin: 0;
 }
+
 
 .entry-list {
   padding-left: 0;
@@ -145,19 +252,27 @@ body {
   color: #ffbfab;
 }
 
-.footer {
+.entry-description-extra{
+  font-weight: 400;
+  color: #ffbfab;
+}
+
+  .footer {
   display: flex;
-  justify-content: space-between;
-  padding: 50px;
+  flex-direction:column;
+  padding: 20px;
   box-sizing: border-box;
-  background: #ffff;
+  background-color:yellow;
+
   bottom: 0;
   left: 0;
   width: 100%;
 }
+  .footer img {
+  height: 35px;
+  padding: 20px;
 
-.footer img {
-  height: 50px;
+}
 }
 
 
